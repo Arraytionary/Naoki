@@ -1,0 +1,31 @@
+﻿<Properties StartupConfiguration="{D716A5DE-80A8-83BF-A02D-91DD32BEBD36}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Ball.cs">
+    <Files>
+      <File FileName="Assets/Ball.cs" Line="23" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerHand.cs" Line="17" Column="17" />
+      <File FileName="Assets/Scripts/Player/PlayerHandRange.cs" Line="16" Column="47" />
+      <File FileName="Assets/Scripts/Player/PlayerController.cs" Line="7" Column="2" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Naoki" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="Player" expanded="True" />
+              </Node>
+              <Node name="Ball.cs" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="5c56bff2-e03b-40eb-886f-6c0d3aebf92e" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>

@@ -6,14 +6,46 @@ public class Ball : MonoBehaviour
 {
     // Start is called before the first frame update
     public Rigidbody rb;
+    public float neutrialSpeed = 4f;
+    private Renderer rend;
+    
+
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
+        rend = GetComponent<Renderer>();
+        Physics.IgnoreLayerCollision(8, 9);
     }
 
-    // Update is called once per frame
-    void FixedUpdate()
+    private void Update()
     {
-        rb.AddForce(transform.forward * 20f);
+        ChangeColorByTag();
+        ChangeTagByVelocity();
+    }
+
+    private void ChangeTagByVelocity()
+    {
+        float magnitude = rb.velocity.magnitude;
+
+        if (magnitude <= neutrialSpeed && transform.gameObject.tag != "Ball_Neu")
+        {
+            transform.gameObject.tag = "Ball_Neu";
+        }
+    }
+
+    private void ChangeColorByTag()
+    {
+        if (transform.gameObject.tag == "Ball_1")
+        {
+            rend.material.color = Color.red;
+        }
+        else if (transform.gameObject.tag == "Ball_2")
+        {
+            rend.material.color = Color.blue;
+        }
+        else
+        {
+            rend.material.color = Color.white;
+        }
+
     }
 }
