@@ -62,6 +62,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Ball.cs" />
     <Compile Include="Assets\PlayerController.cs" />
     <None Include="Assets\Toon.shader" />
     <Reference Include="Unity.Timeline.Editor">
