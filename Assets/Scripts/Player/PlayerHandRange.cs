@@ -25,4 +25,17 @@ public class PlayerHandRange : MonoBehaviour
             PlayerHand.Carry(other.gameObject);
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        // Detect Ball in range of player hand
+        GameObject collidedGameObject = other.gameObject;
+        if (collidedGameObject.tag == "Ball_Neu" && PlayerHand.HandIsEmpty())
+        {
+            this.gameObject.SetActive(false);
+            // Make player hold that ball
+            // Add key press later if needed
+            PlayerHand.Carry(other.gameObject);
+        }
+    }
 }

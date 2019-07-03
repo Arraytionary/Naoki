@@ -47,17 +47,25 @@ public class PlayerController : MonoBehaviour
     }
     public void Destroy()
     {
-        Destroy(this.gameObject);
+        // Destroy(this.gameObject);
+        // this.gameObject.SetActive(false);
+        MeshRenderer m = this.GetComponent<MeshRenderer>();
+        Destroy(this.transform.Find("HandRange").gameObject);
+        // hand.SetActive(false);
+        m.enabled = false;
         GM.Instance.stats[enemyName] += 1;
         Instantiate(explodeEffect, transform.position, Quaternion.identity);
-        //StopAllCoroutines();
+        StopAllCoroutines();
         StartCoroutine(wait());
+        
         
     }
 
     IEnumerator wait()
     {
+        // Debug.Log("reach Here!!!!");
         yield return new WaitForSeconds(1f);
+        Debug.Log("reach Here!!!!");
         GM.ReloadScene();
     }
 }

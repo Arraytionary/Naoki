@@ -8,6 +8,7 @@ public class Ball : MonoBehaviour
     public Rigidbody rb;
     public float neutrialSpeed = 4f;
     private Renderer rend;
+    private bool isAcc;
     
 
     void Start()
@@ -26,9 +27,16 @@ public class Ball : MonoBehaviour
     {
         float magnitude = rb.velocity.magnitude;
 
-        if (magnitude <= neutrialSpeed && transform.gameObject.tag != "Ball_Neu")
+        
+
+        if (magnitude <= neutrialSpeed && transform.gameObject.tag != "Ball_Neu" && isAcc)
         {
+            isAcc = false;
             transform.gameObject.tag = "Ball_Neu";
+        }
+
+        if (magnitude > neutrialSpeed){
+            isAcc = true;
         }
     }
 
