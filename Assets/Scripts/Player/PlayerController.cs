@@ -11,9 +11,19 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string vertical;
     [SerializeField] string enemyTag;
     [SerializeField] string enemyName;
+    [SerializeField] string skip;
+    [SerializeField] string dash;
+    [SerializeField] string slow;
+    [SerializeField] float slowCooldown;
+    [SerializeField] float dashCooldown;
+    [SerializeField] float skipCooldown;
     [SerializeField] GameObject explodeEffect;
+    public Ability ability;
     private float h;
     private float v;
+    private float nextSlow;
+    private float nextSkip;
+    private float nextDash;
     private Rigidbody rb;
     private float rotY;
     private float rotY_prev;
@@ -36,6 +46,17 @@ public class PlayerController : MonoBehaviour
         transform.rotation = Quaternion.Euler(0f, rotY, 0f);
         rotY_prev = rotY;
         rb.velocity = vel;
+        if (Input.GetAxis(skip) == 1 && Time.fixedTime > nextSkip)
+        {
+            StartCoroutine(ability.TimeSkip());
+            nextSkip = Time.fixedTime + skipCooldown;
+        }
+        else if (Input.GetAxis(slow) == 1 && Time.fixedTime > nextSlow)
+        {
+            StartCoroutine(ability.SlowTime());
+            nextSlow = Time.fixedTime + slowCooldown;
+        }
+
     }
     private void OnTriggerEnter(Collider other)
     {

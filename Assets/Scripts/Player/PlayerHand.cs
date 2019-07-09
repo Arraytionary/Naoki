@@ -20,9 +20,11 @@ public class PlayerHand : MonoBehaviour
     }
 
     // Update is called once per frame
-    [System.Obsolete]
+    //[System.Obsolete]
     void FixedUpdate()
     {
+        //Time.timeScale += (1f / 4f) * Time.unscaledDeltaTime;
+        //Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
         // If hand empty, re-activeate the HandRange
         if (HandIsEmpty() && !HandRange.active)
         {
@@ -32,9 +34,11 @@ public class PlayerHand : MonoBehaviour
         {
             Ball.transform.rotation = Hand.transform.rotation;
             Ball.transform.position = Hand.transform.position;
-            if (Input.GetAxis(throwKey) >= 1)
+            if (Input.GetAxisRaw(throwKey) >= 1)
             {
+
                 Throw();
+                //g();
             }
 
             //if (Input.GetAxis(dropKey) >= 1)
@@ -75,6 +79,7 @@ public class PlayerHand : MonoBehaviour
         Ball.tag = ballTag;
         Rigidbody ball_rb = Ball.GetComponent<Rigidbody>();
         ball_rb.useGravity = true;
+        ball_rb.velocity = new Vector3(0f, 0f, 0f);
         ball_rb.AddRelativeForce(Vector3.right * 2000);
         Ball = null;
     }

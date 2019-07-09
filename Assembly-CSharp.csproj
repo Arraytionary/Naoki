@@ -64,13 +64,34 @@
   <ItemGroup>
     <Compile Include="Assets\Ball.cs" />
     <Compile Include="Assets\GM.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\BWEffect.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\DiyEffect__FullOnly.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderEffect_BleedingColors.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderEffect_CorruptedVram.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderEffect_CRT.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderEffect_Scanner.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderEffect_Tint.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderEffect_Unsync.cs" />
+    <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderToTexture.cs" />
     <Compile Include="Assets\ScoreBoard.cs" />
+    <Compile Include="Assets\Scripts\GlitchEffect.cs" />
+    <Compile Include="Assets\Scripts\Player\Ability.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHand.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHandRange.cs" />
     <Compile Include="Assets\Singleton.cs" />
     <Compile Include="Assets\WonderWall.cs" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Distortion2D__FullOnly.shader" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Scanlines.shader" />
     <None Include="Assets\Toon.shader" />
+    <None Include="Assets\Realistic Glitches Lite\Documentation\Realistic Glitches.txt" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\BleedingColors.shader" />
+    <None Include="Assets\Scripts\GlitchShader.shader" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Shift.shader" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\VUnsync.shader" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Tint.shader" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Distortion.shader" />
+    <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\BWDiffuse.shader" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Users/kmkan/Desktop/Naoki/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
