@@ -65,6 +65,15 @@
     <Compile Include="Assets\Ball.cs" />
     <Compile Include="Assets\Dash.cs" />
     <Compile Include="Assets\GM.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\DemoManager.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FPSDisplay.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\FPSTest.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\LoopingParticleSystemsManager.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\MouseFollow.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\OneshotParticleSystemsManager.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\_Demo\ParticleManager.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\AnimatedLight.cs" />
+    <Compile Include="Assets\Mirza Beig\Particle Systems\_Common\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\BWEffect.cs" />
     <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\DiyEffect__FullOnly.cs" />
     <Compile Include="Assets\Realistic Glitches Lite\Assets\Scripts\ShaderEffect_BleedingColors.cs" />
@@ -78,6 +87,7 @@
     <Compile Include="Assets\Scripts\GlitchEffect.cs" />
     <Compile Include="Assets\Scripts\Player\Ability.cs" />
     <Compile Include="Assets\Scripts\Player\ColliderDetect.cs" />
+    <Compile Include="Assets\Scripts\Player\CoolDown.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHand.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerHandRange.cs" />
@@ -86,7 +96,6 @@
     <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Distortion2D__FullOnly.shader" />
     <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Scanlines.shader" />
     <None Include="Assets\Toon.shader" />
-    <None Include="Assets\Realistic Glitches Lite\Documentation\Realistic Glitches.txt" />
     <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\BleedingColors.shader" />
     <None Include="Assets\Scripts\GlitchShader.shader" />
     <None Include="Assets\Realistic Glitches Lite\Assets\Shaders\Shift.shader" />

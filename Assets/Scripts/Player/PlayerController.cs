@@ -14,17 +14,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] string skip;
     [SerializeField] string dash;
     [SerializeField] string slow;
-    [SerializeField] float slowCooldown;
-    [SerializeField] float dashCooldown;
-    [SerializeField] float skipCooldown;
+    [SerializeField] public float slowCooldown;
+    [SerializeField] public float dashCooldown;
+    [SerializeField] public float skipCooldown;
     [SerializeField] GameObject explodeEffect;
     public bool allowMovement;
     public Ability ability;
+    public Dash doDash;
     private float h;
     private float v;
-    private float nextSlow;
-    private float nextSkip;
-    private float nextDash;
+    public float nextSlow;
+    public float nextSkip;
+    public float nextDash;
     private Rigidbody rb;
     private float rotY;
     private float rotY_prev;
@@ -50,15 +51,20 @@ public class PlayerController : MonoBehaviour
             transform.rotation = Quaternion.Euler(0f, rotY, 0f);
             rotY_prev = rotY;
             rb.velocity = vel;
-            if (Input.GetAxis(skip) == 1 && Time.fixedTime > nextSkip)
+            if (Input.GetAxis(skip) == 1 && Time.realtimeSinceStartup > nextSkip)
             {
                 StartCoroutine(ability.TimeSkip());
-                nextSkip = Time.fixedTime + skipCooldown;
+                nextSkip = Time.realtimeSinceStartup + skipCooldown;
             }
-            else if (Input.GetAxis(slow) == 1 && Time.fixedTime > nextSlow)
+            else if (Input.GetAxis(slow) == 1 && Time.realtimeSinceStartup > nextSlow)
             {
                 StartCoroutine(ability.SlowTime());
                 nextSlow = Time.fixedTime + slowCooldown;
+            }
+            else if (Input.GetAxis(dash) == 1 && Time.realtimeSinceStartup > nextDash)
+            {
+                doDash.SetupDash();
+                nextDash = Time.realtimeSinceStartup + dashCooldown;
             }
         }
 

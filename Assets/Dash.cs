@@ -39,35 +39,35 @@ public class Dash : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (dashCooldown <= 0f)
-        {
-            if (Input.GetAxis(dashKey) >= 1)
-            {
-                if (!dashKeyActivated)
-                {
-                    // Disable main player movement
-                    playerController.allowMovement = false;
-                    // Dash
-                    Dashing();
-                    part.Play();
-                    //Instantiate(dashPar, transform.position, transform.rotation);
-                    trailRenderer.emitting = true;
-                    dashCountdown = abilityDuration;
-                    dashCooldown = abilityCooldown;
-                    dashKeyActivated = true;
-                }
-            }
-            else
-            {
-                dashKeyActivated = false;
-            }
-        }
-        else if (dashCountdown < 0f)
-        {
-            // Ability on cooldown and player finished using it
-            dashCooldown -= Time.fixedDeltaTime;
+        //if (dashCooldown <= 0f)
+        //{
+        //    if (Input.GetAxis(dashKey) >= 1)
+        //    {
+        //        if (!dashKeyActivated)
+        //        {
+        //            // Disable main player movement
+        //            playerController.allowMovement = false;
+        //            // Dash
+        //            Dashing();
+        //            part.Play();
+        //            //Instantiate(dashPar, transform.position, transform.rotation);
+        //            trailRenderer.emitting = true;
+        //            dashCountdown = abilityDuration;
+        //            dashCooldown = abilityCooldown;
+        //            dashKeyActivated = true;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        dashKeyActivated = false;
+        //    }
+        //}
+        //else if (dashCountdown < 0f)
+        //{
+        //    // Ability on cooldown and player finished using it
+        //    dashCooldown -= Time.fixedDeltaTime;
 
-        }
+        //}
         if (dashCountdown > 0f)
         {
             // Player still dashing
@@ -88,6 +88,19 @@ public class Dash : MonoBehaviour
             // Allow player to move again
             playerController.allowMovement = true;
         }
+    }
+    public void SetupDash()
+    {
+        // Disable main player movement
+        playerController.allowMovement = false;
+        // Dash
+        Dashing();
+        part.Play();
+        //Instantiate(dashPar, transform.position, transform.rotation);
+        trailRenderer.emitting = true;
+        dashCountdown = abilityDuration;
+        dashCooldown = abilityCooldown;
+        dashKeyActivated = true;
     }
 
 
