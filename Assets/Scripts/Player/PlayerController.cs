@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float dashCooldown;
     [SerializeField] float skipCooldown;
     [SerializeField] GameObject explodeEffect;
+    public bool allowMovement;
     public Ability ability;
     private float h;
     private float v;
@@ -31,30 +32,34 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         rotY_prev = startAngle;
+        allowMovement = true;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        h = Input.GetAxis(horizontal) * speed;
-        v = Input.GetAxis(vertical) * speed;
-        Vector3 vel = rb.velocity;
-        vel.x = h;
-        vel.z = v;
-        rotY = Mathf.Atan2(-v, h) * Mathf.Rad2Deg;
-        rotY = h+v == 0 && rotY_prev != 0 ? rotY_prev : rotY;
-        transform.rotation = Quaternion.Euler(0f, rotY, 0f);
-        rotY_prev = rotY;
-        rb.velocity = vel;
-        if (Input.GetAxis(skip) == 1 && Time.fixedTime > nextSkip)
+        if (allowMovement)
         {
-            StartCoroutine(ability.TimeSkip());
-            nextSkip = Time.fixedTime + skipCooldown;
-        }
-        else if (Input.GetAxis(slow) == 1 && Time.fixedTime > nextSlow)
-        {
-            StartCoroutine(ability.SlowTime());
-            nextSlow = Time.fixedTime + slowCooldown;
+            h = Input.GetAxis(horizontal) * speed;
+            v = Input.GetAxis(vertical) * speed;
+            Vector3 vel = rb.velocity;
+            vel.x = h;
+            vel.z = v;
+            rotY = Mathf.Atan2(-v, h) * Mathf.Rad2Deg;
+            rotY = h + v == 0 && rotY_prev != 0 ? rotY_prev : rotY;
+            transform.rotation = Quaternion.Euler(0f, rotY, 0f);
+            rotY_prev = rotY;
+            rb.velocity = vel;
+            if (Input.GetAxis(skip) == 1 && Time.fixedTime > nextSkip)
+            {
+                StartCoroutine(ability.TimeSkip());
+                nextSkip = Time.fixedTime + skipCooldown;
+            }
+            else if (Input.GetAxis(slow) == 1 && Time.fixedTime > nextSlow)
+            {
+                StartCoroutine(ability.SlowTime());
+                nextSlow = Time.fixedTime + slowCooldown;
+            }
         }
 
     }
@@ -71,8 +76,8 @@ public class PlayerController : MonoBehaviour
         // Destroy(this.gameObject);
         // this.gameObject.SetActive(false);
         MeshRenderer m = this.GetComponent<MeshRenderer>();
-        Destroy(this.transform.Find("HandRange").gameObject);
-        // hand.SetActive(false);
+        this.GetComponent<BoxCollider>().enabled = false;
+        this.transform.Find("HandRange").gameObject.GetComponent<BoxCollider>().enabled = false;
         m.enabled = false;
         GM.Instance.stats[enemyName] += 1;
         Instantiate(explodeEffect, transform.position, Quaternion.identity);
@@ -84,7 +89,6 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator wait()
     {
-        // Debug.Log("reach Here!!!!");
         yield return new WaitForSeconds(1f);
         Debug.Log("reach Here!!!!");
         GM.ReloadScene();
