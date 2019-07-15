@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerHand : MonoBehaviour
 {
     private GameObject Ball; //Turn to private later
+    private Rigidbody BallRB;
     public GameObject Hand;
     public GameObject HandRange;
 
@@ -34,6 +35,9 @@ public class PlayerHand : MonoBehaviour
         {
             Ball.transform.rotation = Hand.transform.rotation;
             Ball.transform.position = Hand.transform.position;
+            Ball.tag = ballTag;
+
+            BallRB.velocity = new Vector3(0f, 0f, 0f);
             if (Input.GetAxisRaw(throwKey) >= 1)
             {
 
@@ -57,31 +61,28 @@ public class PlayerHand : MonoBehaviour
     {
         Ball = ball;
         Ball.tag = ballTag;
-        Ball.GetComponent<Rigidbody>().useGravity = false;
+        BallRB = Ball.GetComponent<Rigidbody>();
+        BallRB.useGravity = false;
+        BallRB.constraints = RigidbodyConstraints.FreezeRotationX | RigidbodyConstraints.FreezeRotationY | RigidbodyConstraints.FreezeRotationZ;
+        BallRB.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+        BallRB.velocity = new Vector3(0f, 0f, 0f);
     }
 
     private void ActiveHandRange()
     {
         HandRange.SetActive(true);
+        HandRange.GetComponent<BoxCollider>().enabled = true;
     }
 
-    private void Drop()
-    {
-
-
-        Ball.GetComponent<Rigidbody>().useGravity = true;
-        Ball = null;
-
-    }
-
-    private void Throw()
+    public void Throw()
     {
         Ball.tag = ballTag;
-        Rigidbody ball_rb = Ball.GetComponent<Rigidbody>();
-        ball_rb.useGravity = true;
-        ball_rb.velocity = new Vector3(0f, 0f, 0f);
-        ball_rb.AddRelativeForce(Vector3.right * 2000);
+        BallRB.useGravity = true;
+        BallRB.constraints = RigidbodyConstraints.None;
+        BallRB.velocity = new Vector3(0f, 0f, 0f);
+        BallRB.AddRelativeForce(Vector3.right * 2000);
         Ball = null;
+        BallRB = null;
     }
 
 }

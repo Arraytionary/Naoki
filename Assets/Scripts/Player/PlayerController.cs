@@ -34,6 +34,9 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rotY_prev = startAngle;
         allowMovement = true;
+        nextSkip = Time.realtimeSinceStartup + skipCooldown;
+        nextSlow = Time.realtimeSinceStartup + slowCooldown;
+        nextDash = Time.realtimeSinceStartup + dashCooldown;
     }
 
     // Update is called once per frame
@@ -49,6 +52,7 @@ public class PlayerController : MonoBehaviour
             rotY = Mathf.Atan2(-v, h) * Mathf.Rad2Deg;
             rotY = h + v == 0 && rotY_prev != 0 ? rotY_prev : rotY;
             transform.rotation = Quaternion.Euler(0f, rotY, 0f);
+            // transform.eulerAngles = Vector3.Lerp(transform.rotation.eulerAngles, new Vector3(0f, rotY, 0f), Time.deltaTime);
             rotY_prev = rotY;
             rb.velocity = vel;
             if (Input.GetAxis(skip) == 1 && Time.realtimeSinceStartup > nextSkip)
@@ -58,8 +62,9 @@ public class PlayerController : MonoBehaviour
             }
             else if (Input.GetAxis(slow) == 1 && Time.realtimeSinceStartup > nextSlow)
             {
+                // Debug.Log(Time.fixedDeltatime - nextSlow);
                 StartCoroutine(ability.SlowTime());
-                nextSlow = Time.fixedTime + slowCooldown;
+                nextSlow = Time.realtimeSinceStartup + slowCooldown;
             }
             else if (Input.GetAxis(dash) == 1 && Time.realtimeSinceStartup > nextDash)
             {
@@ -69,14 +74,35 @@ public class PlayerController : MonoBehaviour
         }
 
     }
-    private void OnTriggerEnter(Collider other)
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     GameObject collidedGameObject = other.gameObject;
+    //     if (collidedGameObject.tag == enemyTag)
+    //     {
+    //         Destroy();
+    //     }
+    // }
+
+    public void CheckIfDestroy(Collider other)
     {
+        //Physics.IgnoreLayerCollision(8, 11, true);
+
+        if (!this.GetComponent<MeshRenderer>().enabled)
+        {
+            //Physics.IgnoreLayerCollision(8, 11, false);
+
+            return;
+        }
         GameObject collidedGameObject = other.gameObject;
         if (collidedGameObject.tag == enemyTag)
         {
             Destroy();
+            //Physics.IgnoreLayerCollision(8, 11, false);
         }
+        //Physics.IgnoreLayerCollision(8, 11, false);
+
     }
+
     public void Destroy()
     {
         // Destroy(this.gameObject);

@@ -21,10 +21,11 @@ public class CoolDown : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         renderBar(dash, (player.dashCooldown - player.nextDash + Time.realtimeSinceStartup) /player.dashCooldown);
-        renderBar(slow, (player.slowCooldown - player.nextSlow + Time.fixedTime) / player.slowCooldown);
+        renderBar(slow, (player.slowCooldown - player.nextSlow + Time.realtimeSinceStartup) / player.slowCooldown);
+        Debug.Log((player.slowCooldown - player.nextSlow + Time.realtimeSinceStartup) / player.slowCooldown);
         renderBar(skip, (player.skipCooldown - player.nextSkip + Time.realtimeSinceStartup) / player.skipCooldown);
     }
     void renderBar(Image bar, float progress)

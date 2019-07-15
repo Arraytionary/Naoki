@@ -6,7 +6,7 @@ public class Ball : MonoBehaviour
 {
     // Start is called before the first frame update
     public Rigidbody rb;
-    public float neutrialSpeed = 4f;
+    private float neutrialSpeed = 20f;
     private Renderer rend;
     private bool isAcc;
     
