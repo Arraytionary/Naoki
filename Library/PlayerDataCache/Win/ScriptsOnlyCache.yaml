@@ -28,15 +28,12 @@ ScriptsOnlyBuild:
     - ShaderEffect_Tint
     - ShaderEffect_Unsync
     - WonderWall
-    - camera
     - ora
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
-    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -93,8 +90,6 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 9218}
-    - Class: 114
       Script: {instanceID: 9346}
     - Class: 114
       Script: {instanceID: 9366}
@@ -125,27 +120,27 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9872}
     - Class: 114
-      Script: {instanceID: 9918}
+      Script: {instanceID: 9876}
     - Class: 114
-      Script: {instanceID: 10076}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 10420}
+      Script: {instanceID: 10078}
     - Class: 114
-      Script: {instanceID: 10474}
+      Script: {instanceID: 10096}
     - Class: 114
-      Script: {instanceID: 10568}
+      Script: {instanceID: 10424}
     - Class: 114
-      Script: {instanceID: 10576}
+      Script: {instanceID: 10478}
     - Class: 114
-      Script: {instanceID: 10696}
+      Script: {instanceID: 10572}
     - Class: 114
-      Script: {instanceID: 10784}
+      Script: {instanceID: 10580}
     - Class: 114
-      Script: {instanceID: 10792}
+      Script: {instanceID: 10700}
     - Class: 114
-      Script: {instanceID: 23182}
+      Script: {instanceID: 10788}
     - Class: 114
-      Script: {instanceID: 26854}
+      Script: {instanceID: 10796}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -236,35 +231,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9586}
     - Class: 114
-      Script: {instanceID: 9918}
+      Script: {instanceID: 9876}
     - Class: 114
-      Script: {instanceID: 9966}
+      Script: {instanceID: 9920}
     - Class: 114
-      Script: {instanceID: 10034}
+      Script: {instanceID: 9968}
     - Class: 114
-      Script: {instanceID: 10046}
+      Script: {instanceID: 10036}
     - Class: 114
-      Script: {instanceID: 10208}
+      Script: {instanceID: 10048}
     - Class: 114
-      Script: {instanceID: 10322}
+      Script: {instanceID: 10212}
     - Class: 114
-      Script: {instanceID: 10390}
+      Script: {instanceID: 10326}
     - Class: 114
-      Script: {instanceID: 10552}
+      Script: {instanceID: 10394}
     - Class: 114
-      Script: {instanceID: 10568}
+      Script: {instanceID: 10556}
     - Class: 114
-      Script: {instanceID: 10696}
+      Script: {instanceID: 10572}
     - Class: 114
-      Script: {instanceID: 10760}
+      Script: {instanceID: 10700}
     - Class: 114
-      Script: {instanceID: 10792}
+      Script: {instanceID: 10764}
     - Class: 114
-      Script: {instanceID: 10810}
+      Script: {instanceID: 10796}
     - Class: 114
-      Script: {instanceID: 10826}
+      Script: {instanceID: 10814}
     - Class: 114
-      Script: {instanceID: 23182}
+      Script: {instanceID: 10830}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -570,7 +565,7 @@ ScriptsOnlyBuild:
     className: ora
   - hash:
       serializedVersion: 2
-      Hash: 158bf7f0fcfd285c412028920de712c6
+      Hash: c7faad5ded3055716c4bdef4ad735515
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Ball
@@ -912,6 +907,12 @@ ScriptsOnlyBuild:
     className: ShaderEffect_Tint
   - hash:
       serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Fix
+  - hash:
+      serializedVersion: 2
       Hash: a93b2012e0dadb91ac8ccb87e0ef3875
     assemblyName: Assembly-CSharp.dll
     namespaceName: Cinemachine
@@ -994,6 +995,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TextContainer
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: HitBox
   - hash:
       serializedVersion: 2
       Hash: b6f2a60dd09eb270d58d6224e03400ee
@@ -1312,18 +1319,6 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: Fix
-  - hash:
-      serializedVersion: 2
-      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: HitBox
   platform: 5
   scenePathNames:
   - Assets/Scenes/startScene.unity

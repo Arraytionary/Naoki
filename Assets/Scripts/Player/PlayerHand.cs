@@ -8,6 +8,7 @@ public class PlayerHand : MonoBehaviour
     private Rigidbody BallRB;
     public GameObject Hand;
     public GameObject HandRange;
+    private AudioSource ThrowAudio; 
 
     public string throwKey;
     //public string dropKey;
@@ -17,7 +18,7 @@ public class PlayerHand : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ThrowAudio = transform.GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -76,6 +77,7 @@ public class PlayerHand : MonoBehaviour
 
     public void Throw()
     {
+        ThrowAudio.Play();
         Ball.tag = ballTag;
         BallRB.useGravity = true;
         BallRB.constraints = RigidbodyConstraints.None;
